@@ -126,7 +126,7 @@ public class Drawer {
             final int size = attributes.length;
             for (int i = 0; i < size; i++) {
                 if(attributes[i].equals("vPosition")){
-                    storeFloatDataInAttributeList(0,m_model.vertexBuffer,m_model.vertexLength,3 );
+                    storeFloatDataInAttributeList(0,m_model.getVertexArrayBuffer(),m_model.vertexLength,3 );
 
                 }
                 if(attributes[i].equals("textureCords")){
