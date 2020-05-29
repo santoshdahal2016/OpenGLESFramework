@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-/**
- * Created by ARF on 31/10/2016.
- */
+
 
 public class IOHelper {
 
@@ -85,5 +83,12 @@ public class IOHelper {
         }
         reader.close();
         return result;
+    }
+
+
+
+    public static BufferedReader loadModel(String name) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(IOHContext.getAssets().open("models/"+name)));
+        return  reader;
     }
 }

@@ -13,6 +13,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+import java.util.List;
 
 public class Model {
 
@@ -112,6 +113,23 @@ public class Model {
 
 
     }
+
+    public Model(FloatBuffer verticesBuffer , int vertexLength1, IntBuffer indexBuffer1 , int indexLength1) {
+
+        vertexBuffer = verticesBuffer;
+
+        vertexBuffer.position(0);
+
+        indexBuffer = indexBuffer1;
+        indexBuffer.position(0);
+
+        indexLength = indexLength1;
+        vertexLength =vertexLength1;
+
+
+
+    }
+
 
     public void textureLoading(String textureFile){
 

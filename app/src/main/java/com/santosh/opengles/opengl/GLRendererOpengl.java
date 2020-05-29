@@ -8,6 +8,7 @@ import com.santosh.opengles.helper.IOHelper;
 import com.santosh.opengles.opengl.element.BuildDrawer;
 import com.santosh.opengles.opengl.element.Drawer;
 import com.santosh.opengles.opengl.element.Model;
+import com.santosh.opengles.opengl.parser.obj.objParser;
 
 
 import java.io.IOException;
@@ -151,10 +152,15 @@ public class GLRendererOpengl implements GLSurfaceView.Renderer {
     Drawer drawerObject;
 
 
+    private objParser objparser;
+
+
     public GLRendererOpengl(Context context) throws IOException, IllegalAccessException {
         super();
         IOHelper.SetContext(context);
         buildDrawer = new BuildDrawer(context);
+
+        objparser = new objParser();
 
     }
 
@@ -166,7 +172,10 @@ public class GLRendererOpengl implements GLSurfaceView.Renderer {
 
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 
-        m_Model  = new Model(cubeCoordswithIdex, cobeIndex , textureCoords );
+
+
+        m_Model = objparser.load("ship.obj");
+//        m_Model  = new Model(cubeCoordswithIdex, cobeIndex  );
 
         m_Model.setScale(new float[]{0.5f,0.5f,0.5f});
         m_Model.setRotationZ(45);
