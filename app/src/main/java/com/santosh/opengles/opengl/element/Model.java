@@ -28,7 +28,7 @@ public class Model {
     public boolean isTextured = false ;
 
     private float[] color;
-    private String textureFile = "crate.jpg";
+    public String textureFile = "texture.png";
 
     int[] vao = new int[1];
     int[] vbo = new int[3];
@@ -130,6 +130,28 @@ public class Model {
 
     }
 
+    public Model(FloatBuffer verticesBuffer , int vertexLength1, IntBuffer indexBuffer1 , int indexLength1 , FloatBuffer textureBuffer1 , int textureLength1) {
+
+        vertexBuffer = verticesBuffer;
+
+        vertexBuffer.position(0);
+
+        indexBuffer = indexBuffer1;
+        indexBuffer.position(0);
+
+
+        textureBuffer = textureBuffer1;
+        textureBuffer.position(0);
+
+        indexLength = indexLength1;
+        vertexLength =vertexLength1;
+        textureLength = textureLength1;
+
+        textureLoading(textureFile);
+
+
+    }
+
 
     public void textureLoading(String textureFile){
 
@@ -181,6 +203,11 @@ public class Model {
 
     public void incrementRotationZ(float rotZ) {
         this.rotation[2] =  this.rotation[2]+rotZ;
+        updateModelMatrix();
+    }
+
+    public void incrementRotationY(float rotY) {
+        this.rotation[1] =  this.rotation[1]+rotY;
         updateModelMatrix();
     }
 

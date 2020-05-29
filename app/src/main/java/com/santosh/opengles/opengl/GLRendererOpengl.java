@@ -174,13 +174,13 @@ public class GLRendererOpengl implements GLSurfaceView.Renderer {
 
 
 
-        m_Model = objparser.load("ship.obj");
+        m_Model = objparser.load("dragon.obj");
 //        m_Model  = new Model(cubeCoordswithIdex, cobeIndex  );
 
-        m_Model.setScale(new float[]{0.5f,0.5f,0.5f});
-        m_Model.setRotationZ(45);
-
-        m_Model.setRotationY(55);
+        m_Model.setScale(new float[]{0.15f,0.15f,0.15f});
+//        m_Model.setRotationZ(90);
+//
+        m_Model.setRotationY(45);
 
         drawerObject = buildDrawer.getDrawer(m_Model, m_Model.isTextured());
 
@@ -200,8 +200,9 @@ public class GLRendererOpengl implements GLSurfaceView.Renderer {
 
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT| GLES20.GL_DEPTH_BUFFER_BIT);
 
+//        m_Model.setRotationY(1);
 
-        m_Model.incrementRotationZ(-1);
+        m_Model.incrementRotationY(-1);
 
         drawerObject.draw(m_Model);
 
